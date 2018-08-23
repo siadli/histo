@@ -719,7 +719,7 @@ Dim Alert
      LblImmah = "7441 TP 25"
      
          ListeDateh.Clear
-       DataHisto.DatabaseName = Chemin & "\technique\technique.mdb"
+       DataHisto.DatabaseName = App.Path & "\technique.mdb"
        
          DataHisto.RecordSource = "select * from histo where numéro=" & Val(LblNumVoiture) & " order by kilomètre desc"
         
@@ -738,7 +738,7 @@ End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
 
- DataHisto.DatabaseName = Chemin & "\technique\technique.mdb"
+ DataHisto.DatabaseName = App.Path & "\technique.mdb"
          DataHisto.RecordSource = "select * from histo where numéro=" & Val(LblNumVoiture) & " order by date desc"
          DataHisto.Refresh
         
@@ -772,7 +772,7 @@ Private Sub CdeAnnuleEffectué_Click()
 End Sub
 
 Private Sub CdeModifier_Click()
- DataHisto.DatabaseName = Chemin & "\technique\technique.mdb"
+ DataHisto.DatabaseName = App.Path & "\technique.mdb"
         DataHisto.RecordSource = "select * from histo where date=" & Format(TxtDateTravo) & ""
         DataHisto.Refresh
         DataHisto.Database.Execute "delete  * from histo where date=" & Format(TxtDateTravo) & ""
@@ -801,7 +801,7 @@ Private Sub CdeModifier_Click()
 End Sub
 
 Private Sub CdeSpph_Click()
-DataHisto.DatabaseName = Chemin & "\technique\technique.mdb"
+DataHisto.DatabaseName = App.Path & "\technique.mdb"
         DataHisto.RecordSource = "select * from histo where date=" & Format(ListeDateh) & ""
         DataHisto.Refresh
         'DataHisto.Database.Execute "delete  * from histo where date=" & Format(ListeDateh) & ""
@@ -810,7 +810,7 @@ DataHisto.DatabaseName = Chemin & "\technique\technique.mdb"
         CdeSupprimeh.Enabled = False
         
          ListeDateh.Clear
-         DataHisto.DatabaseName = Chemin & "\technique\technique.mdb"
+         DataHisto.DatabaseName = App.Path & "\technique.mdb"
          DataHisto.RecordSource = "select * from histo where numéro=" & Val(LblNumVoitureh) & " order by date desc"
          DataHisto.Refresh
          Do While DataHisto.Recordset.EOF = False
@@ -877,7 +877,7 @@ End Sub
 
 Private Sub MnuQuitte_Click()
 
- DataHisto.DatabaseName = Chemin & "\technique\technique.mdb"
+ DataHisto.DatabaseName = App.Path & "\technique.mdb"
          DataHisto.RecordSource = "select * from histo where numéro=" & Val(LblNumVoiture) & " order by date desc"
          DataHisto.Refresh
         
@@ -947,7 +947,7 @@ End Sub
 
 Private Sub CdeAnnuleh_Click()
 
-DataHisto.DatabaseName = Chemin & "\technique\technique.mdb"
+DataHisto.DatabaseName = App.Path & "\technique.mdb"
          DataHisto.RecordSource = "select * from histo where numéro=" & Val(LblNumVoiture) & " order by date desc"
          DataHisto.Refresh
         
@@ -974,14 +974,14 @@ End Sub
 Private Sub CdeSupprimeh_Click()
        ' Réponse = MsgBox("Désirez-vous supprimer cet historique ?", vbCritical + vbYesNo, "Suppression")
        ' If Réponse = vbNo Then Exit Sub
-       ' DataHisto.DatabaseName = Chemin & "\technique\technique.mdb"
+       ' DataHisto.DatabaseName = App.Path & "\technique.mdb"
        ' DataHisto.RecordSource = "select * from histo where date=" & Format(ListeDateh) & ""
       '  DataHisto.Refresh
        ' DataHisto.Database.Execute "delete  * from histo where date=" & Format(ListeDateh) & ""
        ' CdeSupprimeh.Enabled = False
         
         ' ListeDateh.Clear
-       '  DataHisto.DatabaseName = Chemin & "\technique\technique.mdb"
+       '  DataHisto.DatabaseName = App.Path & "\technique.mdb"
        '  DataHisto.RecordSource = "select * from histo where numéro=" & Val(LblNumVoiture) & " order by date desc"
        '  DataHisto.Refresh
         ' Do While DataHisto.Recordset.EOF = False
@@ -999,7 +999,7 @@ Private Sub CdeSupprimeh_Click()
          
 End Sub
 Private Sub ListeDateh_Click()
-         DataHisto.DatabaseName = Chemin & "\technique\technique.mdb"
+         DataHisto.DatabaseName = App.Path & "\technique.mdb"
        DataHisto.RecordSource = "select * from histo where numéro=" & Val(LblNumVoiture) & " and date =" & Format(ListeDateh) & ""
         
          
